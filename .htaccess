@@ -1,0 +1,15 @@
+#RewriteEngine on
+#RewriteCond %{HTTP_HOST} tutorialz.ezcodr\.tech [NC]
+#RewriteCond %{REQUEST_URI} ^/$
+#RewriteRule ^(.*)$ /public/$1 [L]
+
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} !^/public/
+
+# Rewrites all URLS [Replace "example" with the actual domain, without the TLD (.com, .net, .biz, etc)]
+RewriteCond %{HTTP_HOST} ^(www\.)?tutorialz.ezcodr\.
+
+# Rewrite all those to insert /folder
+RewriteRule ^(.*)$ /public/$1 [L]
